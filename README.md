@@ -1,5 +1,0 @@
-# STRAPI_AUTOMATION
-
-
-
-test
