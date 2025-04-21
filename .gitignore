@@ -132,8 +132,5 @@ build
 
 
 
-# Docker and image files
-Dockerfile
-*.dockerignore
 
 
