@@ -67,7 +67,7 @@ resource "aws_instance" "strapi_instance" {
   user_data = file("user_data.sh")
 
   # Security group that allows inbound HTTP traffic on port 80
-  security_groups = [aws_security_group.strapi_sg.name]
+  security_groups = [aws_security_group.strapi_sg_v2.name]
 
   tags = {
     Name = "Strapi-EC2"
