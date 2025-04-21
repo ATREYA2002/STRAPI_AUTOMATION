@@ -10,8 +10,8 @@ resource "tls_private_key" "strapi_ssh" {
 }
 
 # Upload public key to AWS as EC2 Key Pair
-resource "aws_key_pair" "strapi_key" {
-  key_name   = "strapi_key_pair"
+resource "aws_key_pair" "strapi_key_v2" {
+  key_name   = "strapi_key_pair_v2"
   public_key = tls_private_key.strapi_ssh.public_key_openssh
 }
 
@@ -27,8 +27,8 @@ resource "local_file" "private_key_pem" {
 
 
 # Security group resource that allows inbound traffic on port 80
-resource "aws_security_group" "strapi_sg" {
-  name        = "strapi_sg"
+resource "aws_security_group" "strapi_sg_v2" {
+  name        = "strapi_sg_v2"
   description = "Allow inbound HTTP traffic on port 80"
 
   ingress {
