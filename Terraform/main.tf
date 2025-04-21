@@ -62,7 +62,7 @@ ingress {
 resource "aws_instance" "strapi_instance" {
   ami           = "ami-053b0d53c279acc90"  #  # Ubuntu (us-east-1)
   instance_type = "t2.micro"  # Adjust the instance type if needed
-   key_name      = aws_key_pair.strapi_key.key_name
+   key_name      = aws_key_pair.strapi_key_v2.key_name
   # Reference the user_data script from a separate file
   user_data = file("user_data.sh")
 
