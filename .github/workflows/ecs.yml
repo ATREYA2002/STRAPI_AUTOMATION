@@ -24,23 +24,32 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1  
 
-      - name: Initialize Terraform
-        run: |
-          cd Terraform2
-          terraform init
+      # - name: Initialize Terraform
+      #   run: |
+      #     cd Terraform2
+      #     terraform init
 
-      - name: Generate Terraform Plan
-        run: |
-          cd Terraform2
-          terraform plan \
-            -var "image_uri=${{ secrets.ECR_REPOSITORY }}" \
-            -var "region=${{ secrets.AWS_REGION }}"
+      # - name: Generate Terraform Plan
+      #   run: |
+      #     cd Terraform2
+      #     terraform plan \
+      #       -var "image_uri=${{ secrets.ECR_REPOSITORY }}" \
+      #       -var "region=${{ secrets.AWS_REGION }}"
 
-      - name: Apply Terraform Configuration
+      # - name: Apply Terraform Configuration
+      #   run: |
+      #     cd Terraform2
+      #     terraform apply \
+      #       -var "image_uri=${{ secrets.ECR_REPOSITORY }}" \
+      #       -var "region=${{ secrets.AWS_REGION }}" \
+      #       --auto-approve
+
+
+
+      - name: Destroy Terraform Configuration (Optional)
         run: |
           cd Terraform2
-          terraform apply \
+          terraform destroy \
             -var "image_uri=${{ secrets.ECR_REPOSITORY }}" \
             -var "region=${{ secrets.AWS_REGION }}" \
             --auto-approve
-
