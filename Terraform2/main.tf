@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket = "strapi-ecs"
+    bucket = "strapi-ecs-prani"
     key = "terrafrom/terrafrom.tfstate"
     region = "us-east-1"
   }
