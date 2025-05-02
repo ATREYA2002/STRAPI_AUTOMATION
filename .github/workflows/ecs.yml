@@ -36,20 +36,20 @@ jobs:
             -var "image_uri=${{ secrets.ECR_REPOSITORY }}" \
             -var "region=${{ secrets.AWS_REGION }}"
 
-      # - name: Apply Terraform Configuration
-      #   run: |
-      #     cd Terraform2
-      #     terraform apply \
-      #       -var "image_uri=${{ secrets.ECR_REPOSITORY }}" \
-      #       -var "region=${{ secrets.AWS_REGION }}" \
-      #       --auto-approve
-
-
-
-      - name: Destroy Terraform Configuration (Optional)
+      - name: Apply Terraform Configuration
         run: |
           cd Terraform2
-          terraform destroy \
+          terraform apply \
             -var "image_uri=${{ secrets.ECR_REPOSITORY }}" \
             -var "region=${{ secrets.AWS_REGION }}" \
             --auto-approve
+
+
+
+      # - name: Destroy Terraform Configuration (Optional)
+      #   run: |
+      #     cd Terraform2
+      #     terraform destroy \
+      #       -var "image_uri=${{ secrets.ECR_REPOSITORY }}" \
+      #       -var "region=${{ secrets.AWS_REGION }}" \
+      #       --auto-approve
